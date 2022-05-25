@@ -7,12 +7,13 @@ var gNumOfMines = 10
 
 var gGame = {
     isOn: false,
-    shownCount: 0,
+    clickedOnce: false,
     markedCount: 0,
-    secsPassed: 0
 }
 
 function init(){
+    displayHearts()
+
     gBoard = buildBoard()
 
     renderBoard()
@@ -36,7 +37,7 @@ function buildBoard(){
 function createCell(){
     return {
         minesAroundCount: 0,
-        isShown: false,
+        isShown: false, //TODO: work on that instead of DOM
         isMine: false,
         isMarked: false
     }
@@ -45,33 +46,35 @@ function createCell(){
 
 
 function cellClicked(cell,i,j){
-
-
-    if(!gGame.isOn){
+    if(!gGame.clickedOnce){
         gGame.isOn = true
+        gGame.clickedOnce = true
         addMines(i,j)
         updateMinesAroundCount()
+        startTime()
     }
+    if(gGame.isOn){
 
 
-    if(!cell.classList.contains("hidden")){
-        return
-    }
+        if(!cell.classList.contains("hidden")){
+            return
+        }
 
-    if(gBoard[i][j].isMine){
-        cell.classList.add('mine')
-    }
-    show(cell)
+        if(gBoard[i][j].isMine){
+            cell.classList.add('mine')
+        }
+        show(cell)
 
-    if(cell.classList.contains('mine')){
-        gameOver()
-    }else{
-        numColor(cell,i,j)
+        if(cell.classList.contains('mine')){
+            deductHeart()
+        }else{
+            numColor(cell,i,j)
+        }
     }
 }
 
 function show(cell){
-    cell.classList.remove("hidden")
+    cell.classList.remove("hidden") //Change to gBoard index
     if(cell.classList.contains('mine')){
         cell.innerHTML = `<img src="img/mine.png"/>`
     }
@@ -188,7 +191,31 @@ function numColor(cell,i,j){
 }
 
 function gameOver(){
-
+    clearInterval(gPlayTime)
+    gPlayTime = 0
+    var elTimer = document.querySelector('.timer')
+    elTimer.innerText = 'Game Over!'
+    gGame.isOn = false
 }
+
+
+function deductHeart(){
+    gHearts--
+    displayHearts()
+    if(gHearts === 0){
+        gameOver()
+    }
+}
+
+function mark(cell,i,j){
+    if(gBoard[i][j].isMarked){
+        gBoard[i][j].isMarked = false
+        cell.innerHTML = ''
+    }else{
+        gBoard[i][j].isMarked = true
+        cell.innerHTML = `<img src="img/flag.png"/>`
+    }
+}
+
 
 

@@ -1,10 +1,30 @@
 body {
-    background-color: blueviolet;
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(97,70,252,0.6505952722886029) 100%);
 }
 
 .table {
-    margin: auto;
-    
+    margin: auto;   
+}
+
+.sidebar {
+    background: rgb(63,94,251);
+    background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,117,252,0.6505952722886029) 100%);
+    border: 2px solid rgb(237, 195, 238);
+    float: left;
+    height: 100%;
+    width: 250px;
+}
+
+.hearts {
+    padding: 5px;
+    margin-top: 3px;
+}
+
+.timer {
+    padding: 3px;
+    border: 1px solid black;
+    margin-top: 0%;
 }
 
 .cell {
@@ -18,12 +38,12 @@ body {
     width: 38px;
 
 
-    background-color: aquamarine;
+    background-color: rgb(242, 229, 229);
 
-    border-bottom: 4px solid aquamarine;
-    border-right: 4px solid aquamarine;
-    border-top: 4px solid aquamarine;
-    border-left: 4px solid aquamarine;
+    border-bottom: 4px solid rgb(242, 229, 229);
+    border-right: 4px solid rgb(242, 229, 229);
+    border-top: 4px solid rgb(242, 229, 229);
+    border-left: 4px solid rgb(242, 229, 229);
 
     padding: auto;
 }

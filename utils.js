@@ -6,7 +6,7 @@ function renderBoard(){
       strHTML += '<tr>';
       for (var j = 0; j < gBoard[0].length; j++) {
         var className = 'cell cell-' + i + '-' + j + ' hidden';
-        strHTML += `<td class="${className}" onclick="cellClicked(this,${i},${j})"></td>`
+        strHTML += `<td class="${className}" onclick="cellClicked(this,${i},${j})" oncontextmenu="mark(this,${i},${j});return false;"></td>`
       }
       strHTML += '</tr>'
     }
