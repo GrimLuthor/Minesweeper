@@ -1,0 +1,49 @@
+body {
+    background-color: blueviolet;
+}
+
+.cell {
+    text-align: center;
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+
+
+    height: 48px;
+    width: 38px;
+
+
+    background-color: aquamarine;
+
+    border-bottom: 4px solid aquamarine;
+    border-right: 4px solid aquamarine;
+    border-top: 4px solid aquamarine;
+    border-left: 4px solid aquamarine;
+
+    padding: auto;
+}
+
+.mine {
+    background-color: red;
+    border-bottom: 4px solid red;
+    border-right: 4px solid red;
+    border-top: 4px solid red;
+    border-left: 4px solid red;
+}
+
+.cell:hover {
+    cursor: pointer;
+}
+
+.hidden {
+    height: 48px;
+    width: 38px;
+
+    background-color: rgb(166, 166, 166);
+    border-bottom: 4px solid rgb(149, 149, 149);
+    border-right: 4px solid rgb(149, 149, 149);
+    border-top: 4px solid rgb(253, 253, 253);
+    border-left: 4px solid rgb(253, 253, 253);
+
+    padding: auto;
+}
