@@ -13,6 +13,14 @@ function displayHearts(){
     heartBar.innerHTML = heartStr
 }
 
+function deductHeart(){
+    gHearts--
+    displayHearts()
+    if(gHearts === 0){
+        gameOver(false)
+    }
+}
+
 function startTime(){
     var start = Date.now()
 
