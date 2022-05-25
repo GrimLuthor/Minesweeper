@@ -3,7 +3,7 @@
 var gBoard;
 var SIZE = 36
 
-var gNumOfMines = 5
+var gNumOfMines = 10
 
 var gGame = {
     isOn: false,
@@ -14,10 +14,6 @@ var gGame = {
 
 function init(){
     gBoard = buildBoard()
-
-    addMines()
-
-    updateMinesAroundCount()
 
     renderBoard()
 
@@ -49,9 +45,23 @@ function createCell(){
 
 
 function cellClicked(cell,i,j){
-    if(cell.classList.contains("hidden")){
-        show(cell)
+
+
+    if(!gGame.isOn){
+        gGame.isOn = true
+        addMines(i,j)
+        updateMinesAroundCount()
     }
+
+
+    if(!cell.classList.contains("hidden")){
+        return
+    }
+
+    if(gBoard[i][j].isMine){
+        cell.classList.add('mine')
+    }
+    show(cell)
 
     if(cell.classList.contains('mine')){
         gameOver()
@@ -97,11 +107,14 @@ function getMineNegsCount(i,j){
 
 }
 
-function addMines(){
+function addMines(m,l){
     for(var k = 0; k < gNumOfMines; k++){
         var notMines = []
         for(var i = 0; i < gBoard.length; i++){
             for(var j = 0; j < gBoard.length; j++){
+                if(i===m&&l===j){
+                    continue;
+                }
                 if(!gBoard[i][j].isMine){
                     notMines.push(gBoard[i][j])
                 }

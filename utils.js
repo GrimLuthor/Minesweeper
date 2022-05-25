@@ -1,14 +1,11 @@
 "use strict"
 
 function renderBoard(){
-    var strHTML = '<table border="1"><tbody>';
+    var strHTML = '<table class="table" border="1"><tbody>';
     for (var i = 0; i < gBoard.length; i++) {
       strHTML += '<tr>';
       for (var j = 0; j < gBoard[0].length; j++) {
         var className = 'cell cell-' + i + '-' + j + ' hidden';
-        if(gBoard[i][j].isMine){
-            className+=' mine'
-        }
         strHTML += `<td class="${className}" onclick="cellClicked(this,${i},${j})"></td>`
       }
       strHTML += '</tr>'

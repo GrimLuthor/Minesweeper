@@ -2,6 +2,11 @@ body {
     background-color: blueviolet;
 }
 
+.table {
+    margin: auto;
+    
+}
+
 .cell {
     text-align: center;
     font-size: x-large;
@@ -34,6 +39,8 @@ body {
 .cell:hover {
     cursor: pointer;
 }
+
+
 
 .hidden {
     height: 48px;
