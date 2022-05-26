@@ -8,6 +8,8 @@ var gNumOfFlags = gNumOfMines
 
 var undoList = []
 
+var isCreatorTest = false
+
 var gGame = {
     isOn: false,
     clickedOnce: false,
@@ -16,8 +18,14 @@ var gGame = {
 
 function init(){
     displayHearts()
-
-    gBoard = buildBoard()
+    if(isCreatorTest){
+        var copy = JSON.parse(JSON
+            .stringify(editedBoard)
+        )
+        gBoard = copy
+    }else{
+     gBoard = buildBoard()
+    }  
 
     renderBoard()
 
@@ -52,7 +60,9 @@ function cellClicked(cell,i,j){
     if(!gGame.clickedOnce){
         gGame.isOn = true
         gGame.clickedOnce = true
-        addMines(i,j)
+        if(!isCreatorTest){
+            addMines(i,j)
+        }
         updateMinesAroundCount()
         startTime()
     }
@@ -104,11 +114,11 @@ function updateMinesAroundCount(){
 function getMineNegsCount(i,j){
     var count = 0
     for(var x = i-1; x < i + 2; x++){
-        if(x < 0 || x > Math.sqrt(SIZE)-1){
+        if(x < 0 || x > gBoard.length-1){
             continue;
         }
         for(var y = j-1; y < j + 2; y++){
-            if(y < 0 || y > Math.sqrt(SIZE)-1){
+            if(y < 0 || y > gBoard[0].length-1){
                 continue;
             }
             if(x===i&&y===j){
@@ -237,7 +247,7 @@ function mark(cell,i,j){
 }
 
 function checkIfWon(){
-    if(gGame.discroveredCells === SIZE-gNumOfMines){
+    if(gGame.discroveredCells === (gBoard.length*gBoard.length)-gNumOfMines){
         gameOver(true)
     }
 }

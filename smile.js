@@ -1,5 +1,5 @@
 "use strict"
-
+var CONSTRUCTOR = '<img src="img/constructor.png" alt="idle"></img>'
 var IDLE = '<img src="img/idle.png" alt="idle"></img>'
 var DEAD = '<img src="img/dead.png" alt="idle"></img>'
 var WON = '<img src="img/won.png" alt="idle"></img>'
@@ -23,6 +23,7 @@ function smileWon(){
 }
 
 function restart(){
+    if(inCreatorMode) return
 
     clearInterval(gPlayTime)
     gPlayTime = 0
@@ -43,7 +44,6 @@ function restart(){
     var elButton = document.querySelector('.safe-click')
     elButton.innerText = 'Safe Click * 3'
 
-    gNumOfFlags = gNumOfMines
 
     undoList = []
 

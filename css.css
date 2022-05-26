@@ -106,7 +106,7 @@ body {
     margin-top: 10px;
 }
 
-.popup {
+.popup-dif {
     border: 2px solid black;
     margin-top: 5px;
     height: 22px;
@@ -128,4 +128,24 @@ body {
 
 .undo {
     margin-top: 10px;
+}
+
+.creatorMode {
+    margin-top: 10px;
+}
+
+.popup-size {
+    border: 2px solid black;
+    margin-top: 5px;
+    height: 22px;
+    width: auto;
+    display: none;
+}
+
+.test {
+    display: none;
+}
+
+.discard {
+    display: none;
 }

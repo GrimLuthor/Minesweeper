@@ -14,7 +14,7 @@
             <div class="hearts"></div>
             <button class="safe-click" onclick="safeClick(this)">Safe Click * 3</button><br>
             <button class="difficulty" onclick="displayDifficulty()">Set Difficulty</button>
-            <div class="popup">
+            <div class="popup-dif">
                 <button onclick="setDifficulty(25,3)">Easy</button>
                 <button onclick="setDifficulty(36,5)">Medium</button>
                 <button onclick="setDifficulty(49,7)">Hard</button>
@@ -22,6 +22,16 @@
             </div>
             <br>
             <button class="undo" onclick="undo()">Undo Move</button>
+            <br>
+            <button class="creatorMode" onclick="displayCreatorSize()">Creator Mode</button>
+            <div class="popup-size">
+                <button onclick="enterCreatorMode(25)">Small</button>
+                <button onclick="enterCreatorMode(36)">Medium</button>
+                <button onclick="enterCreatorMode(49)">Big</button>
+                <button onclick="enterCreatorMode(64)">Large</button>
+            </div>
+            <button class="test" onclick="test(this)">Test!</button>
+            <button class="discard" onclick="discard(this)">Discard</button>
         </div>
 
         <div class="upbar">
@@ -37,6 +47,8 @@
         <script src="utils.js"></script>
         <script src="sidebar.js"></script>
         <script src="smile.js"></script>
+        <script src="creatorMode.js"></script>
+
     
     </body>
 </html>

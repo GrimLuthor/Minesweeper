@@ -90,7 +90,7 @@ function safeClick(button){
 var difDisplayed = false
 function displayDifficulty(){
     if(!gGame.isOn){
-        var difBar = document.querySelector('.popup')
+        var difBar = document.querySelector('.popup-dif')
         if(!difDisplayed){
             difBar.style.display = 'block'
             difDisplayed = !difDisplayed
@@ -102,10 +102,11 @@ function displayDifficulty(){
 }
 
 function setDifficulty(size,mines){
+    if(isCreatorTest) return
     SIZE = size
     gNumOfMines = mines
     restart()
-    var difBar = document.querySelector('.popup')
+    var difBar = document.querySelector('.popup-dif')
     difBar.style.display = 'none'
     difDisplayed = !difDisplayed
 }
