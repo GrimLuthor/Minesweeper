@@ -4,7 +4,6 @@ var gBoard;
 var SIZE = 25
 
 var gNumOfMines = 3
-var gNumOfFlags = gNumOfMines
 
 var undoList = []
 
@@ -77,7 +76,6 @@ function cellClicked(cell,i,j){
         if(gBoard[i][j].isMine){
             cell.classList.add('mine')
             gGame.explodedCount++
-            gNumOfFlags--
             steppedOnMine()
         }
         undoList = []
@@ -236,11 +234,9 @@ function mark(cell,i,j){
         if(gBoard[i][j].isMarked){
             gBoard[i][j].isMarked = false
             cell.innerHTML = ''
-        gNumOfFlags++
-        }else if(gNumOfFlags>0){
+        }else{
             gBoard[i][j].isMarked = true
             cell.innerHTML = `<img src="img/flag.png"/>`
-            gNumOfFlags--
         }
     }
     

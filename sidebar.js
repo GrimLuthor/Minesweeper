@@ -122,7 +122,6 @@ function undo(){
             if(elCell.classList.contains('mine')){
                 elCell.innerHTML = ''
                 gHearts++
-                gNumOfFlags++
                 displayHearts()
             }else{
                 gGame.discroveredCells-=undoList.length

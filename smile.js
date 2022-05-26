@@ -38,7 +38,6 @@ function restart(){
     gGame.isOn = false
     gGame.clickedOnce = false
     gGame.discroveredCells = 0
-    gNumOfFlags = gNumOfMines
     gHearts = 3
     gSafeClicks = 3
     var elButton = document.querySelector('.safe-click')
