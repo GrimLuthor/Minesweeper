@@ -3,11 +3,12 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>Document</title>
+        <title>Minesweeper by D. Olenev</title>
         <link rel="stylesheet" href="css.css">
     </head>
 
     <body onload="init()">
+       
         <div class="sidebar">
             <h2 class="timer">Click on a Tile to Start!</h1>
             <div class="hearts"></div>
@@ -19,7 +20,8 @@
                 <button onclick="setDifficulty(49,7)">Hard</button>
                 <button onclick="setDifficulty(64,10)">Extreme</button>
             </div>
-
+            <br>
+            <button class="undo" onclick="undo()">Undo Move</button>
         </div>
 
         <div class="upbar">
@@ -29,10 +31,12 @@
         </div>
 
         <div class="board-container"></div>
+        <footer class="footer">Daniel Olenev</footer>
         
         <script src="main.js"></script>
         <script src="utils.js"></script>
         <script src="sidebar.js"></script>
         <script src="smile.js"></script>
+    
     </body>
 </html>

@@ -117,3 +117,15 @@ body {
 .difficulty {
     margin-top: 10px;
 }
+
+.footer {
+    font-size: x-large;
+    font-family: 'Brush Script MT';
+}
+.board-container {
+    height: 460px;
+}
+
+.undo {
+    margin-top: 10px;
+}

@@ -154,12 +154,13 @@ function rOpenTiles(i,j){
             if(x===i&&y===j){
                 continue;
             }
-            var currCell = document.querySelector(`.cell-${x}-${y}`);
+            
             if(gBoard[x][y].isShown){
                 continue
             }
+            var currCell = document.querySelector(`.cell-${x}-${y}`);
             show(currCell,x,y)
-            undoList.push({undoItem: gBoard[i][j],idxI: x,idxJ: y})
+            undoList.push({undoItem: gBoard[x][y],idxI: x,idxJ: y})
             if(gBoard[x][y].minesAroundCount === 0){
                 rOpenTiles(x,y)
             }else{

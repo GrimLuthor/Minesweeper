@@ -112,7 +112,7 @@ function setDifficulty(size,mines){
 
 
 function undo(){
-    if(gGame.isOn){
+    if(gGame.isOn&&undoList.length>0){
         for(var i = 0; i < undoList.length; i++){
             undoList[i].undoItem.isShown = false
             var elCell = document.querySelector(`.cell-${undoList[i].idxI}-${undoList[i].idxJ}`);
@@ -126,6 +126,7 @@ function undo(){
             }else{
                 gGame.discroveredCells-=undoList.length
             }
-        }   
+        }
+        undoList = []  
     }
 }
