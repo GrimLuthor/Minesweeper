@@ -86,7 +86,10 @@ function safeClick(button){
         gSafeClicks--
         button.innerText = 'Safe Click * '+gSafeClicks
 
-        setTimeout(()=>{cell.innerText = ''},1500)
+        setTimeout(()=>{
+            if(cell.classList.contains('hidden')){cell.innerText = ''}
+            if(num==0){cell.innerText = ''}
+        },1500)
     }
 }
 
