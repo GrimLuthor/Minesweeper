@@ -11,7 +11,21 @@
         <div class="sidebar">
             <h2 class="timer">Click on a Tile to Start!</h1>
             <div class="hearts"></div>
+            <button class="safe-click" onclick="safeClick(this)">Safe Click * 3</button><br>
+            <button class="difficulty" onclick="displayDifficulty()">Set Difficulty</button>
+            <div class="popup">
+                <button onclick="setDifficulty(25,3)">Easy</button>
+                <button onclick="setDifficulty(36,5)">Medium</button>
+                <button onclick="setDifficulty(49,7)">Hard</button>
+                <button onclick="setDifficulty(64,10)">Extreme</button>
+            </div>
 
+        </div>
+
+        <div class="upbar">
+            <div class="smile" onclick="restart()">
+                <img src="img/idle.png" alt="idle">
+            </div>
         </div>
 
         <div class="board-container"></div>
@@ -19,5 +33,6 @@
         <script src="main.js"></script>
         <script src="utils.js"></script>
         <script src="sidebar.js"></script>
+        <script src="smile.js"></script>
     </body>
 </html>

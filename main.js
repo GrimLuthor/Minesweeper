@@ -1,10 +1,12 @@
 "use strict"
 
 var gBoard;
-var SIZE = 36
+var SIZE = 25
 
 var gNumOfMines = 3
 var gNumOfFlags = gNumOfMines
+
+var undoList = []
 
 var gGame = {
     isOn: false,
@@ -54,6 +56,9 @@ function cellClicked(cell,i,j){
         updateMinesAroundCount()
         startTime()
     }
+    if(gBoard[i][j].isMarked){
+        return
+    }
     if(gGame.isOn){
         if(!cell.classList.contains("hidden")){
             return
@@ -63,8 +68,10 @@ function cellClicked(cell,i,j){
             cell.classList.add('mine')
             gGame.explodedCount++
             gNumOfFlags--
+            steppedOnMine()
         }
-
+        undoList = []
+        undoList.push({undoItem: gBoard[i][j],idxI: i,idxJ: j})
         show(cell,i,j)
 
         if(cell.classList.contains('mine')){
@@ -87,8 +94,8 @@ function show(cell,i,j){
 }
 
 function updateMinesAroundCount(){
-    for(var i = 0; i < Math.sqrt(SIZE); i++){
-        for(var j = 0; j < Math.sqrt(SIZE); j++){
+    for(var i = 0; i < gBoard.length; i++){
+        for(var j = 0; j < gBoard[0].length; j++){
             gBoard[i][j].minesAroundCount = getMineNegsCount(i,j)
         }
     }
@@ -119,7 +126,7 @@ function getMineNegsCount(i,j){
 function addMines(m,l){
     for(var k = 0; k < gNumOfMines; k++){
         var notMines = []
-        for(var i = 0; i < gBoard.length; i++){
+        for(var i = 0; i < gBoard[0].length; i++){
             for(var j = 0; j < gBoard.length; j++){
                 if(i===m&&l===j){
                     continue;
@@ -152,6 +159,7 @@ function rOpenTiles(i,j){
                 continue
             }
             show(currCell,x,y)
+            undoList.push({undoItem: gBoard[i][j],idxI: x,idxJ: y})
             if(gBoard[x][y].minesAroundCount === 0){
                 rOpenTiles(x,y)
             }else{
@@ -202,10 +210,12 @@ function gameOver(haveWon){
     gPlayTime = 0
     var elTimer = document.querySelector('.timer')
     if(haveWon){
-        elTimer.innerText = 'You Won!'
+        elTimer.innerText += '\nYou Won!'
+        smileWon()
     }else{
-        elTimer.innerText = 'Game Over!'
+        elTimer.innerText += '\nGame Over!'
     }
+    showMines(haveWon)
     gGame.isOn = false
 }
 
@@ -226,9 +236,24 @@ function mark(cell,i,j){
 }
 
 function checkIfWon(){
-    console.log(gGame.discroveredCells);
     if(gGame.discroveredCells === SIZE-gNumOfMines){
         gameOver(true)
+    }
+}
+
+function showMines(haveWon){
+    for(var i = 0; i < gBoard.length; i++){
+        for(var j = 0; j < gBoard[0].length; j++){
+            if(gBoard[i][j].isMine){
+                var elMine = document.querySelector(`.cell-${i}-${j}`)
+                elMine.classList.remove('hidden')
+                elMine.innerHTML = '<img src="img/mine.png"/>'
+                if(haveWon){
+                    elMine.classList.add('win-mine')
+                }
+
+            }
+        }
     }
 }
 
