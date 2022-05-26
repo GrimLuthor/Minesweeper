@@ -40,8 +40,12 @@ function restart(){
     gGame.discroveredCells = 0
     gHearts = 3
     gSafeClicks = 3
-    var elButton = document.querySelector('.safe-click')
-    elButton.innerText = 'Safe Click * 3'
+    var elSafeClick = document.querySelector('.safe-click')
+    elSafeClick.innerText = 'Safe Click * 3'
+    gHintMode.gHintCount = 3
+    var elHint = document.querySelector('.hint')
+    elHint.innerText = 'Hint * 3'
+
 
 
     undoList = []
