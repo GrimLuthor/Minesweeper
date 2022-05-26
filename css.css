@@ -90,7 +90,7 @@ body {
     background: radial-gradient(circle, rgba(63,94,251,1) 0%, rgba(70,117,252,0.6505952722886029) 100%);
     border: 2px solid rgb(237, 195, 238);
     height: 30%;
-    width: 1250px;
+    width: auto;
     margin-right: auto;
     margin-left: 262px;
     
@@ -118,12 +118,15 @@ body {
     margin-top: 10px;
 }
 
-.footer {
+.footer {   
+    position: absolute;
     font-size: x-large;
     font-family: 'Brush Script MT';
+    bottom: 2%;
+    right: 5%;
 }
 .board-container {
-    height: 460px;
+    height: auto;
 }
 
 .undo {
