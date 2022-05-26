@@ -152,3 +152,7 @@ body {
 .discard {
     display: none;
 }
+
+.minecount {
+    margin-left: 20px;
+}

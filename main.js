@@ -28,6 +28,8 @@ function init(){
 
     renderBoard()
 
+    displayMineCount()
+
     console.log(gBoard)
 }
 

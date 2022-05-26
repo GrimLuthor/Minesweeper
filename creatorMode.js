@@ -38,12 +38,16 @@ function edit(cell,i,j){
     if(editedBoard[i][j].isMine){
         cell.innerHTML = ''
         editedBoard[i][j].isMine = false
-        createdMines--
+        createdMines-- 
+
     }else{
         cell.innerHTML = `<img src="img/mine.png"/>`
         editedBoard[i][j].isMine = true
         createdMines++
     }
+
+    var elMineDisplay = document.querySelector('.minecount')
+    elMineDisplay.innerText = '💣*'+createdMines
 
 }
 
@@ -55,6 +59,8 @@ function enterCreatorMode(size){
     var testBtn = document.querySelector('.test')
     testBtn.style.display = 'block'
 
+    var elMineDisplay = document.querySelector('.minecount')
+    elMineDisplay.innerText = '💣*'+createdMines
 
     var elSmile = document.querySelector('.smile')
     elSmile.innerHTML = CONSTRUCTOR
@@ -84,6 +90,10 @@ function test(elButton){
     isCreatorTest = true
     restart()
     gNumOfMines = createdMines
+
+    var elMineDisplay = document.querySelector('.minecount')
+    elMineDisplay.innerText = '💣*'+createdMines
+
     createdMines = 0
     elButton.style.display = 'none'
 

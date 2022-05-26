@@ -102,7 +102,7 @@ function displayDifficulty(){
 }
 
 function setDifficulty(size,mines){
-    if(isCreatorTest) return
+    if(isCreatorTest||inCreatorMode) return
     SIZE = size
     gNumOfMines = mines
     restart()
@@ -129,4 +129,9 @@ function undo(){
         }
         undoList = []  
     }
+}
+
+function displayMineCount(){
+    var elMineDisplay = document.querySelector('.minecount')
+    elMineDisplay.innerText = '💣*'+gNumOfMines
 }
