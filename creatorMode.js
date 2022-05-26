@@ -59,6 +59,9 @@ function enterCreatorMode(size){
     var testBtn = document.querySelector('.test')
     testBtn.style.display = 'block'
 
+    var elTimer = document.querySelector('.timer')
+    elTimer.innerText = 'Creator Mode'
+
     var elMineDisplay = document.querySelector('.minecount')
     elMineDisplay.innerText = '💣*'+createdMines
 

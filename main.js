@@ -67,6 +67,12 @@ function cellClicked(cell,i,j){
         updateMinesAroundCount()
         startTime()
     }
+
+    if(gHintMode.isHintMode){
+        hintClick(i,j)
+        return
+    }
+
     if(gBoard[i][j].isMarked){
         return
     }
