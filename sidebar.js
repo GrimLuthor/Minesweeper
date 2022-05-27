@@ -97,7 +97,7 @@ function safeClick(button){
 
 var difDisplayed = false
 function displayDifficulty(){
-    if(!gGame.isOn){
+    if(!gGame.isOn&&!is7BoomMode&&!isCreatorTest&&!inCreatorMode){
         var difBar = document.querySelector('.popup-dif')
         if(!difDisplayed){
             difBar.style.display = 'block'
@@ -114,9 +114,7 @@ function setDifficulty(size,mines){
     SIZE = size
     gNumOfMines = mines
     restart()
-    var difBar = document.querySelector('.popup-dif')
-    difBar.style.display = 'none'
-    difDisplayed = !difDisplayed
+    closeAll()
 }
 
 
@@ -226,5 +224,21 @@ function hintClick(i,j){
 
         gHintMode.isHintMode = false
     }
+
+}
+
+function closeAll(){
+
+    var difBar = document.querySelector('.popup-dif')
+    difBar.style.display = 'none'
+    difDisplayed = !difDisplayed
+
+    var sizeBar = document.querySelector('.popup-size')
+    sizeBar.style.display = 'none'
+    sizeDisplayed = !sizeDisplayed
+
+    var sizeSbBar = document.querySelector('.popup-sb')
+    sizeSbBar.style.display = 'none'
+    sbDisplayed = !sbDisplayed
 
 }

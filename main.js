@@ -9,6 +9,8 @@ var undoList = []
 
 var isCreatorTest = false
 
+var is7BoomMode = false
+
 var gGame = {
     isOn: false,
     clickedOnce: false,
@@ -20,6 +22,11 @@ function init(){
     if(isCreatorTest){
         var copy = JSON.parse(JSON
             .stringify(editedBoard)
+        )
+        gBoard = copy
+    }else if(is7BoomMode){
+        var copy = JSON.parse(JSON
+            .stringify(sevenBoomBoard)
         )
         gBoard = copy
     }else{
@@ -61,7 +68,7 @@ function cellClicked(cell,i,j){
     if(!gGame.clickedOnce){
         gGame.isOn = true
         gGame.clickedOnce = true
-        if(!isCreatorTest){
+        if(!isCreatorTest&&!is7BoomMode){
             addMines(i,j)
         }
         updateMinesAroundCount()

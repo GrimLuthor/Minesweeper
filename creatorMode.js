@@ -52,9 +52,7 @@ function edit(cell,i,j){
 }
 
 function enterCreatorMode(size){
-    var sizeBar = document.querySelector('.popup-size')
-    sizeBar.style.display = 'none'
-    sizeDisplayed = !sizeDisplayed
+    closeAll()
 
     var testBtn = document.querySelector('.test')
     testBtn.style.display = 'block'
@@ -76,7 +74,7 @@ function enterCreatorMode(size){
 
 var sizeDisplayed = false
 function displayCreatorSize(){
-    if(!gGame.isOn&&!isCreatorTest){
+    if(!gGame.isOn&&!isCreatorTest&&!is7BoomMode){
         var sizeBar = document.querySelector('.popup-size')
         if(!sizeDisplayed){
             sizeBar.style.display = 'block'
@@ -105,6 +103,7 @@ function test(elButton){
 }
 
 function discard(elButton){
+    sizeDisplayed = !sizeDisplayed
     isCreatorTest = false
     setDifficulty(25,3)
     elButton.style.display = 'none'

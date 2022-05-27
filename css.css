@@ -160,3 +160,15 @@ body {
 .hint {
     margin-top: 10px;
 }
+
+.sevenboom {
+    margin-top: 10px;
+}
+
+.popup-sb {
+    border: 2px solid black;
+    margin-top: 5px;
+    height: 22px;
+    width: auto;
+    display: none;
+}
