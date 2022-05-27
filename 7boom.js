@@ -71,7 +71,7 @@ function enter7BoomMode(size){
 
     sevenBoomMineCount = 0
 
-    init()
+    restart()
     
 
     var el7B = document.querySelector('.sevenboom')
