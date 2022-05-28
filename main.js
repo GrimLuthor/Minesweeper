@@ -11,6 +11,8 @@ var isCreatorTest = false
 
 var is7BoomMode = false
 
+var gTime = 0
+
 var gGame = {
     isOn: false,
     clickedOnce: false,
@@ -236,6 +238,9 @@ function gameOver(haveWon){
     if(haveWon){
         elTimer.innerText += '\nYou Won!'
         smileWon()
+
+        updateLeaderBoard()
+        
     }else{
         elTimer.innerText += '\nGame Over!'
     }

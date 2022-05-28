@@ -34,7 +34,9 @@ function startTime(){
     var elTimer = document.querySelector('.timer')
     gPlayTime = setInterval(()=>{
         var time = Date.now()-start
-        elTimer.innerText = time/1000+'s'
+
+        gTime = time/1000
+        elTimer.innerText = gTime+'s'
 
     },1)
 }
@@ -231,14 +233,14 @@ function closeAll(){
 
     var difBar = document.querySelector('.popup-dif')
     difBar.style.display = 'none'
-    difDisplayed = !difDisplayed
+    difDisplayed = false
 
     var sizeBar = document.querySelector('.popup-size')
     sizeBar.style.display = 'none'
-    sizeDisplayed = !sizeDisplayed
+    sizeDisplayed = false
 
     var sizeSbBar = document.querySelector('.popup-sb')
     sizeSbBar.style.display = 'none'
-    sbDisplayed = !sbDisplayed
+    sbDisplayed = false
 
 }
